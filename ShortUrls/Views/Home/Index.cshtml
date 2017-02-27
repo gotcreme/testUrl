@@ -1,0 +1,40 @@
+﻿@model ShortUrls.Models.Url
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<div class="row" style="padding-top: 30px;">
+    <div class="col-md-6">
+        <div class="jumbotron">
+            <p style="font-weight: bold;">Paste your long URL here:</p>
+            <div class="row">           
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.LongUrl, null, new { @class = "form-control", @placeholder = "Long URL" })
+                    <div class="input-group-btn">
+                        <button class="btn btn-primary" type="submit"  onclick="shortening()">
+                            Shorten URL
+                        </button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 well" id="output" style="display: none;">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="font-weight: bold;">Your shorter URL:</div>
+            <div class="panel-body">
+                <span id="shorterURLResult" style="font-weight: bold; font-size: 16px;"></span>
+            </div>
+        </div>
+    </div>   
+</div>
+
+@section scripts {
+    <script type="text/javascript">  
+        function shortening() {
+            requestShortUrl($("#LongUrl").val(), '@Url.Action("ShorterUrl", "Home")', '#shorterURLResult', '#output');
+        }
+    </script>
+}
