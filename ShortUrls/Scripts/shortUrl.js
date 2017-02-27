@@ -18,7 +18,7 @@ function requestShortUrl(longUrl, requestUrl, resultSelector, outputSelector) {
         },
         success: function (data) {
             $(resultSelector).text("");
-            if (data.status == true) {
+            if (data.status === true) {
                 $(resultSelector).append('<a href="' + data.url + '" target="_blank">' + data.url + '</a>');
             } else {
                 $(resultSelector).append(data.message);

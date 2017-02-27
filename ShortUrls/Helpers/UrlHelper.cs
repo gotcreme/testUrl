@@ -9,11 +9,11 @@ namespace ShortUrls.Helpers
 {
     public static class UrlHelper
     {
-        public static string GenerateRandomShortUrl(int length = 6)
+        public static string GenerateRandomShortUrl(int length = 10)
         {
             Random randomGenerator = new Random();
 
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
             return new string(Enumerable.Repeat(chars, length)
               .Select(s => s[randomGenerator.Next(s.Length)]).ToArray());
@@ -45,6 +45,11 @@ namespace ShortUrls.Helpers
             {
                 return false;
             }
+        }
+
+        public static string BuildUrlFromSegments(string scheme, string authority, string path)
+        {
+            return scheme + "://" + authority + "/" + path;
         }
     }
 }

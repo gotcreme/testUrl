@@ -76,12 +76,20 @@ namespace ShortUrls.Controllers
                     _context.Urls.Add(url);
                     _context.SaveChanges();
 
-                    var shortUrl = Request.Url.Scheme + "://" + Request.Url.Authority + "/" + url.ShortUrl;
+                    var shortUrl = Helpers.UrlHelper.BuildUrlFromSegments(
+                        Request.Url.Scheme, 
+                        Request.Url.Authority, 
+                        url.ShortUrl);
+
                     return Json(new { status = true, url = shortUrl }, JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
-                    var shortUrl = Request.Url.Scheme + "://" + Request.Url.Authority + "/" + urlInDb.ShortUrl;
+                    var shortUrl = Helpers.UrlHelper.BuildUrlFromSegments(
+                        Request.Url.Scheme, 
+                        Request.Url.Authority, 
+                        urlInDb.ShortUrl);
+
                     return Json(new {status = true, url = shortUrl }, JsonRequestBehavior.AllowGet);
                 }
             }

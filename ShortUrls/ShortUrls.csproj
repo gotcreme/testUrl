@@ -204,11 +204,11 @@
     </Compile>
     <Compile Include="Helpers\UrlHelper.cs" />
     <Compile Include="Infrastructure\Constants.cs" />
-    <Compile Include="Migrations\201702271757274_InitialCreate.cs" />
-    <Compile Include="Migrations\201702271757274_InitialCreate.Designer.cs">
+    <Compile Include="Infrastructure\Migrations\201702271757274_InitialCreate.cs" />
+    <Compile Include="Infrastructure\Migrations\201702271757274_InitialCreate.Designer.cs">
       <DependentUpon>201702271757274_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Infrastructure\Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -289,7 +289,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201702271757274_InitialCreate.resx">
+    <EmbeddedResource Include="Infrastructure\Migrations\201702271757274_InitialCreate.resx">
       <DependentUpon>201702271757274_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
